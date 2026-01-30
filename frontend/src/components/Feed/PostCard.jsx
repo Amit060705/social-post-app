@@ -12,7 +12,6 @@ import {
     TextField,
     Collapse,
     Divider,
-    Chip,
 } from '@mui/material';
 import {
     Favorite,

@@ -47,6 +47,7 @@ const Feed = () => {
     useEffect(() => {
         fetchPosts(activeTab, 1);
         setPage(1);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeTab]);
 
     const handleTabChange = (newTab) => {

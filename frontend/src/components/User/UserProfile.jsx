@@ -6,7 +6,6 @@ import {
     Typography,
     Box,
     Button,
-    Grid,
     CircularProgress,
     Tab,
     Tabs,
@@ -22,10 +21,6 @@ const UserProfile = () => {
     const [loading, setLoading] = useState(true);
     const [activeTab, setActiveTab] = useState(0);
 
-    useEffect(() => {
-        fetchProfile();
-    }, []);
-
     const fetchProfile = async () => {
         try {
             const data = await userAPI.getProfile(user._id);
@@ -35,6 +30,11 @@ const UserProfile = () => {
         }
         setLoading(false);
     };
+
+    useEffect(() => {
+        fetchProfile();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     if (loading) {
         return (

@@ -18,7 +18,6 @@ import { userAPI } from '../../services/api';
 const SearchBar = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState(null);
-    const [loading, setLoading] = useState(false);
 
     const handleSearch = async (searchQuery) => {
         setQuery(searchQuery);
@@ -28,14 +27,12 @@ const SearchBar = () => {
             return;
         }
 
-        setLoading(true);
         try {
             const data = await userAPI.search(searchQuery);
             setResults(data);
         } catch (error) {
             console.error('Search error:', error);
         }
-        setLoading(false);
     };
 
     return (
